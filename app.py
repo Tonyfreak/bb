@@ -16,7 +16,7 @@ def home():
 def adder():
  if request.method == "POST":
   url = request.form.get('url')
-  DATABASE_URL = os.environ['DATABASE_URL']
+  #DATABASE_URL = os.environ['DATABASE_URL']
    
   os.popen(['bash','./bas.sh',url])
   return render_template("index.html", info="Added to queue !")
