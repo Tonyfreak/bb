@@ -1,6 +1,7 @@
 from flask import Flask, render_template, send_file, request, redirect, url_for
 import os
 import base64
+import subprocess
 
 app = Flask(__name__)
 
@@ -18,11 +19,12 @@ def adder():
   url = request.form.get('url')
   #DATABASE_URL = os.environ['DATABASE_URL']
    
-  os.popen(['bash','./bas.sh',url])
+  subprocess.call(['bash','bas.sh',url])
   return render_template("index.html", info="Added to queue !")
 
 
 #########################################################################
 
 if __name__ == "__main__":
-  app.run(port=8000)
+  app.run(port=8002)
+  #app.run(debug=True) 
